@@ -3,13 +3,41 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div id="sidebar">
+      <div ="logo">
+        <%= link_to root_path do %>
+        <%= image_tag "logo.png" %>
+        <% end %>
+      </div>
+
+      <ul type = none>
+        <li><%= link_to "Blog", root_path %></li>
+      </ul>
+
+      <p class = "sign_in">Login</p>
+    </div>
+
+    <div id="main_content">
+      <div id="header">
+        <center>
+          <h1>All Posts</h1>
+        </center>
+        <div class="button">
+          <button class="button"><%= link_to "New Post", new_post_path %></button>
+          <button class="button"><%= link_to "Log out" %></button>
+        </div>
+      </div>
+      <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert") %>
+      <% end %>
+
     <%= yield %>
+    </div>
   </body>
 </html>
