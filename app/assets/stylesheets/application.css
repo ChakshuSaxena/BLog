@@ -206,31 +206,9 @@ a {
     }
   }
   #page_wrapper {
-    padding: 3em;
-    #profile_image {
-      width: 300px;
-      float: left;
-      margin-right: 2em;
-      img {
-        width: 100%;
-        border-radius: 0.35em;
-      }
-    }
-    #content {
-      h1 {
-        font-weight: 500;
-      }
-      p {
-        font-size: 1.1em;
-        line-height: 1.75;
-      }
-      a {
-        color: #33acb7;
-        font-weight: 700;
-        text-decoration: none;
-      }
-    }
+    padding: 3em; 
   }
+  
   .links {
     margin: 2em 0;
   }

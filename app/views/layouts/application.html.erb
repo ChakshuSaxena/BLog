@@ -19,19 +19,28 @@
       <ul type = none>
         <li><%= link_to "Blog", root_path %></li>
       </ul>
-
-      <p class = "sign_in">Login</p>
+      <% if !user_signed_in? %>
+      <p class = "sign_in"><%= link_to "Login", new_user_session_path %></p>
+      <% end %>
     </div>
 
     <div id="main_content">
       <div id="header">
+        <% if current_page?(root_path) %>
         <center>
           <h1>All Posts</h1>
         </center>
+        <% else %>
+        <div class="buttons">
+          <button class="button"><%= link_to "All post", root_path %></button>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
         <div class="buttons">
           <button class="button"><%= link_to "New Post", new_post_path %></button>
-          <button class="button">Log Out</button>
+          <button class="button"><%= link_to "Log out", destroy_user_session_path, method: :delete %></button>
         </div>
+        <% end %>
       </div>
       <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
