@@ -10,7 +10,7 @@
 
   <body>
     <div id="sidebar">
-      <div ="logo">
+      <div id="logo">
         <%= link_to root_path do %>
         <%= image_tag "logo.png" %>
         <% end %>
@@ -18,10 +18,12 @@
 
       <ul type = none>
         <li><%= link_to "Blog", root_path %></li>
+        <li>
+          <% if !user_signed_in? %>
+          <p class = "sign_in"><%= link_to "Login", new_user_session_path %></p>
+          <% end %>
+        </li>
       </ul>
-      <% if !user_signed_in? %>
-      <p class = "sign_in"><%= link_to "Login", new_user_session_path %></p>
-      <% end %>
     </div>
 
     <div id="main_content">

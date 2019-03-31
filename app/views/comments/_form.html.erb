@@ -1,9 +1,13 @@
-<%= form_for([@post, @post.comments.create]) do |f| %>
+<div class="form">
+  <%= form_for([@post, @post.comments.create]) do |f| %>
+  <h3>Add a comment:</h3>
   <%= f.label :name %><br>
     <%= f.text_field :name %>
-    <br>
+    <br><br>
     <%= f.label :Comment %><br>
     <%= f.text_area :body %>
   <br>
     <%= f.submit "post" %>
 <% end %>
+</div>
+

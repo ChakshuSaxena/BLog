@@ -1,6 +1,7 @@
 <div id = "post_content">
-    <h1 class = "title">
-    <center><%= @post.title %></center>
+  <h1 class = "title">
+    <%= @post.title %>
+  </h1>
   <p>
     <% if user_signed_in? %>
     <%= link_to 'Edit', edit_post_path(@post) %>
@@ -15,7 +16,6 @@
   <div id ="comments">
     <h2><%= @post.comments.count %> Comments </h2>
     <%= render @post.comments %>
-    <h3>Add a comment:</h3>
     <%= render"comments/form" %>
   </div>
 </div>
